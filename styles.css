@@ -944,13 +944,13 @@ section {
 
   .hero__date {
     margin-bottom: 1rem;
-    font-size: clamp(1.55rem, 8vw, 2.25rem);
+    font-size: clamp(1.7rem, 8.6vw, 2.4rem);
     line-height: 1.05;
   }
 
   .hero__copy {
     margin-bottom: 1.5rem;
-    font-size: 0.98rem;
+    font-size: 1.04rem;
     line-height: 1.65;
   }
 
@@ -1027,7 +1027,7 @@ section {
 
   .moment p {
     margin-bottom: 0;
-    font-size: 0.96rem;
+    font-size: 1.02rem;
     line-height: 1.65;
   }
 
@@ -1046,7 +1046,7 @@ section {
   }
 
   .dress-code__copy p {
-    font-size: 0.98rem;
+    font-size: 1.04rem;
     line-height: 1.7;
   }
 
@@ -1110,11 +1110,11 @@ section {
   }
 
   .hero__date {
-    font-size: clamp(1.35rem, 7.5vw, 1.95rem);
+    font-size: clamp(1.5rem, 8vw, 2.05rem);
   }
 
   .hero__copy {
-    font-size: 0.92rem;
+    font-size: 0.98rem;
   }
 
   .day-divider,
