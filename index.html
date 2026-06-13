@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="lt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kviečiame į vestuves</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="petal-field" aria-hidden="true"></div>
+
+    <nav class="topbar" aria-label="Pagrindine navigacija">
+      <a href="#top" class="brand">Rugpjūčio 7-9 d.</a>
+      <div class="nav-links">
+        <a href="#programa">Programa</a>
+        <a href="#vietos">Vietos</a>
+        <a href="#nakvyne">Nakvynė</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="hero__content reveal">
+        <p class="eyebrow">Mielieji, kviečiame pasidžiaugti kartu</p>
+        <h1>Tuokiamės!</h1>
+        <p class="hero__date">2026 m. rugpjūčio 8 d. <span>12:50</span></p>
+        <p class="hero__copy">
+          Laukia trys lengvos, juoko ir vasaros pilnos dienos prie jūros: pradėsime
+          šventę penktadienį, o šeštadienį ištarsime savo TAIP Palangoje.
+        </p>
+        <a class="button" href="#programa">Programa</a>
+      </div>
+
+      <div class="floral-orbit" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <main>
+      <section class="timeline" id="programa" aria-labelledby="programa-title">
+        <div class="section-heading reveal">
+          <h2 id="programa-title">Programa</h2>
+        </div>
+
+        <div class="timeline__track">
+          <div class="day-divider reveal">
+            <span>Penktadienis</span>
+            <strong>Rugpjūčio 7 d.</strong>
+          </div>
+
+          <article class="moment left reveal">
+            <time datetime="2026-08-07T12:00">Nuo 12:00 val.</time>
+            <h3>Įsikūrimas</h3>
+            <p>
+              Namukas jūsų lauks „Atostogų parke“, Žibininkuose.  Galite atvykti nuo 12 val. arba neskubėti ir įsikurti vakare.
+            </p>
+          </article>
+
+          <article class="moment right reveal">
+            <time datetime="2026-08-07T15:00">15:00 val.</time>
+            <h3>Pradedame šventę</h3>
+            <p>
+              Susitinkame Kretingos muziejuje, kur ramiai, linksmai ir įdomiai pradėsime savaitgalį.
+            </p>
+          </article>
+
+          <article class="moment left reveal">
+            <time datetime="2026-08-07T15:00"> 17:00 val.</time>
+            <h3>Vakarienė</h3>
+
+          </article>
+
+          <div class="day-divider reveal">
+            <span>Šeštadienis</span>
+            <strong>Rugpjūčio 8 d.</strong>
+          </div>
+
+          <article class="moment left reveal">
+            <time datetime="2026-08-08T12:50">12:50 val.</time>
+            <h3>Ceremonija</h3>
+            <p>
+              Tuokiamės Palangos metrikacijos skyriuje. Bus trumpa, gražu ir,
+              tikėtina, šiek tiek jautru.
+            </p>
+          </article>
+
+
+          <article class="moment right reveal">
+            <h3>Šeštadienio programa dar dėliojama... </h3>
+                        <p>
+              ...bet kubilas jau užsakytas.
+            </p>
+          </article>
+
+          <div class="day-divider reveal">
+            <span>Sekmadienis</span>
+            <strong>Rugpjūčio 9 d.</strong>
+          </div>
+
+          <article class="moment left reveal">
+            <time datetime="2026-08-09T15:00">Iki sekmadienio popietės</time>
+            <h3>Dar truputį kartu</h3>
+            <p>
+              Neskubėsime išsiskirstyti: pokalbiai, žuvienė ir vasariškas atsisveikinimas.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="places" id="vietos" aria-labelledby="vietos-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Adresai</p>
+        </div>
+
+        <div class="place-list">
+          <a
+            class="place reveal"
+            href="https://www.google.com/maps/search/?api=1&query=Palangos+metrikacijos+skyrius+K%C4%99stu%C4%8Dio+g.+19+Palanga"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>Ceremonija</span>
+            <strong>Palangos metrikacijos skyrius</strong>
+            <em>Kęstučio g. 19, Palanga</em>
+          </a>
+
+          <a
+            class="place reveal"
+            href="https://www.google.com/maps/search/?api=1&query=Kretingos+muziejus+Vilniaus+g.+20+Kretinga"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>Šventės pradžia</span>
+            <strong>Kretingos muziejus</strong>
+            <em>Vilniaus g. 20, Kretinga</em>
+          </a>
+
+          <a
+            class="place reveal"
+            href="https://www.google.com/maps/search/?api=1&query=Atostog%C5%B3+parkas+Venecijos+al%C4%97ja+2+%C5%BDibininkai"
+            target="_blank"
+            rel="noreferrer"
+            id="nakvyne"
+          >
+            <span>Nakvynė</span>
+            <strong>„Atostogų parkas“</strong>
+            <em>Venecijos alėja 2, Žibininkai</em>
+          </a>
+        </div>
+      </section>
+
+      <section class="note reveal">
+        <p>
+          Daugiau apie šventę papasakosime jai artėjant, o dabar labiausiai norime, kad šį rugpjūčio savaitgalį rezervuotumėte mums.
+        </p>
+        <p class="signature">Emilija ir Rimvydas</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="#top" aria-label="Grįžti į viršų">Aukštyn</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
