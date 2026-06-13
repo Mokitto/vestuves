@@ -56,4 +56,24 @@ const createPetals = () => {
   petalField.appendChild(fragment);
 };
 
+const decorateSignatureLetters = () => {
+  const names = document.querySelectorAll(".signature__name");
+
+  names.forEach((name) => {
+    const letters = Array.from(name.textContent.trim());
+
+    name.textContent = "";
+
+    letters.forEach((letter, index) => {
+      const span = document.createElement("span");
+
+      span.className = "signature__letter";
+      span.textContent = letter;
+      span.style.setProperty("--i", index);
+      name.appendChild(span);
+    });
+  });
+};
+
+decorateSignatureLetters();
 createPetals();

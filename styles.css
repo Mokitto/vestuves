@@ -543,13 +543,179 @@ section {
 }
 
 .note .signature {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  align-items: baseline;
+  justify-content: center;
+  isolation: isolate;
   padding-top: 0;
   font-size: clamp(1.8rem, 4vw, 3.2rem);
+  overflow: hidden;
 }
 
 .note .signature::before,
 .note .signature::after {
-  display: none;
+  position: absolute;
+  left: 50%;
+  z-index: -1;
+  display: block;
+  width: min(26rem, 92vw);
+  height: 5.5rem;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  transform: translateX(-50%) scaleX(0.8);
+}
+
+.note .signature::before {
+  top: 50%;
+  border-radius: 999px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 0.65rem,
+      rgba(186, 147, 97, 0.18) 0.65rem 0.72rem,
+      transparent 0.72rem 1.25rem
+    );
+  filter: blur(0.2px);
+}
+
+.note .signature::after {
+  top: calc(50% + 1.5rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(186, 147, 97, 0.7), transparent);
+}
+
+.signature__name,
+.signature__and {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+
+.signature__name {
+  position: relative;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(
+      105deg,
+      var(--ink) 0 0.24em,
+      var(--gold) 0.24em 0.31em,
+      var(--rose) 0.31em 0.36em,
+      var(--ink) 0.36em 0.62em
+    );
+  background-size: 260% 100%;
+  background-position: 0 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.signature__name::after {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -0.18em;
+  height: 2px;
+  content: "";
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(1);
+  transform-origin: center;
+}
+
+.signature__and {
+  color: var(--gold);
+  font-size: 0.62em;
+  font-style: italic;
+}
+
+.signature__letter {
+  display: inline-block;
+  color: transparent;
+  background:
+    repeating-linear-gradient(
+      105deg,
+      var(--ink) 0 0.24em,
+      var(--gold) 0.24em 0.31em,
+      var(--rose) 0.31em 0.36em,
+      var(--ink) 0.36em 0.62em
+    );
+  background-size: 260% 100%;
+  background-position: 0 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform-origin: 50% 78%;
+  will-change: transform, background-position, filter;
+}
+
+.signature__spark {
+  position: relative;
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  align-self: center;
+  opacity: 0.86;
+  transform: scale(1) rotate(0deg);
+}
+
+.signature__spark::before,
+.signature__spark::after {
+  position: absolute;
+  content: "";
+  border-radius: 70% 30% 70% 30%;
+  background: rgba(209, 155, 140, 0.72);
+}
+
+.signature__spark::before {
+  width: 0.72rem;
+  height: 1.05rem;
+  left: 0.12rem;
+  top: 0.1rem;
+}
+
+.signature__spark::after {
+  width: 0.48rem;
+  height: 0.72rem;
+  right: 0.05rem;
+  bottom: 0.05rem;
+  background: rgba(119, 139, 109, 0.58);
+  transform: rotate(42deg);
+}
+
+.signature__name--first {
+  animation: signatureStripeFlow 14s linear infinite;
+}
+
+.signature__name--last {
+  animation: signatureStripeFlow 14s linear 1.2s infinite;
+}
+
+.signature__letter {
+  animation:
+    signatureLetterDance 5.5s ease-in-out calc(var(--i) * 120ms) infinite,
+    signatureStripeFlow 14s linear calc(var(--i) * 90ms) infinite;
+}
+
+.signature__name::after {
+  animation: signatureUnderlinePulse 6s ease-in-out infinite;
+}
+
+.signature__spark {
+  animation: signatureSparkFloat 7s ease-in-out infinite;
+}
+
+.signature__spark--right {
+  animation-delay: 0.7s;
+}
+
+.signature::before {
+  animation: signatureAura 18s linear infinite;
+}
+
+.signature::after {
+  animation: signatureUnderlinePulse 7s ease-in-out infinite;
 }
 
 .footer {
@@ -609,6 +775,117 @@ section {
   }
   50% {
     transform: scale(1.06);
+  }
+}
+
+@keyframes signatureRise {
+  0% {
+    opacity: 0;
+    transform: translateY(1.1rem) rotate(1deg);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes signatureLine {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes signatureUnderlinePulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleX(0.82);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes signatureStripeFlow {
+  0% {
+    background-position: 0 50%;
+    filter: drop-shadow(0 0 0 rgba(186, 147, 97, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(186, 147, 97, 0.18));
+  }
+  100% {
+    background-position: 260% 50%;
+    filter: drop-shadow(0 0 0 rgba(186, 147, 97, 0));
+  }
+}
+
+@keyframes signatureLetterDance {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  16% {
+    transform: translateY(-0.025em) rotate(-0.45deg) scale(1.006);
+  }
+  34% {
+    transform: translateY(0.018em) rotate(0.38deg) scale(0.998);
+  }
+  52% {
+    transform: translateY(-0.015em) rotate(0.25deg) scale(1.004);
+  }
+  74% {
+    transform: translateY(0.012em) rotate(-0.22deg) scale(1);
+  }
+}
+
+@keyframes signatureAura {
+  0% {
+    opacity: 0.2;
+    background-position: 0 50%;
+    transform: translateX(-50%) scaleX(0.9);
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateX(-50%) scaleX(1);
+  }
+  100% {
+    opacity: 0.2;
+    background-position: 18rem 50%;
+    transform: translateX(-50%) scaleX(0.9);
+  }
+}
+
+@keyframes signatureSpark {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-18deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.1) rotate(8deg);
+  }
+  100% {
+    opacity: 0.86;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes signatureSparkFloat {
+  0%,
+  100% {
+    opacity: 0.58;
+    transform: translateY(0) scale(0.96) rotate(-4deg);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translateY(-0.18rem) scale(1.03) rotate(4deg);
   }
 }
 
