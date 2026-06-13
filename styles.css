@@ -944,14 +944,14 @@ section {
 
   .hero__date {
     margin-bottom: 1rem;
-    font-size: clamp(1.7rem, 8.6vw, 2.4rem);
+    font-size: clamp(2rem, 9.5vw, 2.75rem);
     line-height: 1.05;
   }
 
   .hero__copy {
     margin-bottom: 1.5rem;
-    font-size: 1.04rem;
-    line-height: 1.65;
+    font-size: 1.16rem;
+    line-height: 1.72;
   }
 
   .button {
@@ -1027,8 +1027,8 @@ section {
 
   .moment p {
     margin-bottom: 0;
-    font-size: 1.02rem;
-    line-height: 1.65;
+    font-size: 1.14rem;
+    line-height: 1.72;
   }
 
   .dress-code__inner {
@@ -1046,8 +1046,8 @@ section {
   }
 
   .dress-code__copy p {
-    font-size: 1.04rem;
-    line-height: 1.7;
+    font-size: 1.16rem;
+    line-height: 1.76;
   }
 
   .place-list {
@@ -1067,6 +1067,11 @@ section {
 
   .place strong {
     font-size: clamp(2rem, 11vw, 2.8rem);
+  }
+
+  .place em {
+    font-size: 1.1rem;
+    line-height: 1.7;
   }
 
   .note p {
@@ -1110,11 +1115,11 @@ section {
   }
 
   .hero__date {
-    font-size: clamp(1.5rem, 8vw, 2.05rem);
+    font-size: clamp(1.85rem, 9vw, 2.35rem);
   }
 
   .hero__copy {
-    font-size: 0.98rem;
+    font-size: 1.1rem;
   }
 
   .day-divider,
