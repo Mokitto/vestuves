@@ -700,23 +700,12 @@ section {
   display: inline-block;
   opacity: 1;
   transform: translateY(0) rotate(0deg);
+  white-space: nowrap;
 }
 
 .signature__name {
   position: relative;
   color: var(--ink);
-  background:
-    repeating-linear-gradient(
-      105deg,
-      var(--ink) 0 0.24em,
-      var(--gold) 0.24em 0.31em,
-      var(--rose) 0.31em 0.36em,
-      var(--ink) 0.36em 0.62em
-    );
-  background-size: 260% 100%;
-  background-position: 0 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
 }
 
 .signature__name::after {
@@ -946,6 +935,21 @@ section {
   }
   74% {
     transform: translateY(0.012em) rotate(-0.22deg) scale(1);
+  }
+}
+
+@keyframes signatureLetterDanceSoft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  45% {
+    transform: translate3d(0, -0.04em, 0) rotate(0.12deg);
+  }
+
+  70% {
+    transform: translate3d(0, 0.025em, 0) rotate(-0.08deg);
   }
 }
 
@@ -1214,8 +1218,62 @@ section {
   }
 
   .note .signature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.12em;
+    align-items: center;
+    justify-items: center;
     padding-top: 0;
-    font-size: clamp(1.75rem, 9vw, 2.65rem);
+    font-size: clamp(1.7rem, 8.5vw, 2.3rem);
+    line-height: 1.02;
+    overflow: visible;
+  }
+
+  .signature__name {
+    padding-inline: 0.04em;
+    letter-spacing: 0.035em;
+  }
+
+  .signature__letter {
+    animation:
+      signatureLetterDanceSoft 8s ease-in-out calc(var(--i) * 140ms) infinite,
+      signatureStripeFlow 18s linear calc(var(--i) * 120ms) infinite;
+  }
+
+  .signature__spark {
+    display: none;
+  }
+
+  .signature__spark--left {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .signature__name--first {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .signature__and {
+    grid-column: 1;
+    grid-row: 2;
+    margin-block: 0;
+    font-size: 0.54em;
+  }
+
+  .signature__name--last {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .signature__spark--right {
+    grid-column: 4;
+    grid-row: 1;
+  }
+
+  .note .signature::before,
+  .note .signature::after {
+    width: min(15rem, 78vw);
   }
 
   .footer {
